@@ -25,7 +25,7 @@ class AdapterPomiar (val ListaPomiarow : ArrayList<Pomiar>) : RecyclerView.Adapt
         val tva = holder.tvadres
         tva.text = pomiar.adres
         val tvw = holder.tvwoda
-        tvw.text = pomiar.ilosc.toString()
+        tvw.text = pomiar.ilosc
     }
 
     override fun getItemCount(): Int {
