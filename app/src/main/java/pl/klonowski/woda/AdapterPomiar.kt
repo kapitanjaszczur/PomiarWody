@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 class AdapterPomiar (val ListaPomiarow : ArrayList<Pomiar>) : RecyclerView.Adapter<AdapterPomiar.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvadres = itemView.findViewById<TextView>(R.id.textView)
-        val tvwoda = itemView.findViewById<TextView>(R.id.textView2)
+        val tvadres = itemView.findViewById<TextView>(R.id.textViewAdres)
+        val tvwoda = itemView.findViewById<TextView>(R.id.textViewWoda)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

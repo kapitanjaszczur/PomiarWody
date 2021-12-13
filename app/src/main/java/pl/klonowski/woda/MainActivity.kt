@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.widget.Adapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import pl.klonowski.woda.Pomiar.Companion.arrP
+import java.time.Duration
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,21 +27,31 @@ class MainActivity : AppCompatActivity() {
         val adapter = AdapterPomiar(listaPomiarow)
         recycler.adapter = adapter
 
-        fun Wyczysc() {
+        fun clear() {
             adres.text = null
             ilosc.text = null
         }
 
         przyciskOdswiez.setOnClickListener {
-            Wyczysc()
+            clear()
             recycler.layoutManager = LinearLayoutManager(parent, RecyclerView.VERTICAL, false)
         }
 
         przyciskDodaj.setOnClickListener {
             val a = adres.text.toString()
             val i = ilosc.text.toString()
-            listaPomiarow += Pomiar(a, i)
-            Wyczysc()
+
+            if (a!="" && i!="") {
+                listaPomiarow += Pomiar(a, i)
+                clear()
+                Toast.makeText(this,"Zapisano!", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(this,"Niedozwolona wartość!", Toast.LENGTH_SHORT).show()
+            }
+
+
+
         }
 
 
