@@ -1,5 +1,6 @@
 package pl.klonowski.woda
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val przyciskDodaj = findViewById<Button>(R.id.buttonAdd)
         val przyciskLinear = findViewById<Button>(R.id.buttonLinear)
         val przyciskGrid = findViewById<Button>(R.id.buttonGrid)
+        val przyciskRecAct = findViewById<Button>(R.id.buttonRecAct)
 
         val recycler = findViewById<RecyclerView>(R.id.RV1)
         var listaPomiarow = arrP()
@@ -55,6 +57,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
+        przyciskRecAct.setOnClickListener {
+            val intent = Intent(this, RecyclerActivity::class.java).apply {
+                putExtra("dane", listaPomiarow)
+            }
+            startActivity(intent)
+        }
     }
 }

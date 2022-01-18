@@ -70,6 +70,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Grid" />
+
+        <Button
+            android:id="@+id/buttonRecAct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rec" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
